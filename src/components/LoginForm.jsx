@@ -42,13 +42,13 @@ export default function LoginForm() {
                 const { user } = await createUserWithEmailAndPassword(auth, email, password);
 
                 await setDoc(doc(db, "users", user.uid), {
-                    displayName: user.displayName || user.email,
+                    email: email,
+                    displayName: email,
+                    photoURL: null,
+                    createdAt: Date.now(),
                     highScore: 0,
                     gamesPlayed: 0,
-                    totalScore: 0,
-                    totalJumps: 0,
-                    totalClicks: 0,
-                    totalPipes: 0,
+                    isMock: false,
                 });
 
             } else {
@@ -68,7 +68,13 @@ export default function LoginForm() {
             const { user } = await signInWithPopup(auth, googleProvider);
 
             await setDoc(doc(db, "users", user.uid), {
+                email: user.email,
                 displayName: user.displayName || user.email,
+                photoURL: null,
+                createdAt: Date.now(),
+                highScore: 0,
+                gamesPlayed: 0,
+                isMock: false,
             }, { merge: true });
 
         } catch (err) {

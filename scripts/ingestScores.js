@@ -114,9 +114,9 @@ async function pushScores() {
 			email: player.email,
 			displayName: player.name,
 			photoURL: null,
-			crreatedAt: memberSince,
+			createdAt: memberSince,
 			highScore,
-			gamePlayer: sessionCount,
+			gamesPlayed: sessionCount,
 			isMock: true,
 		});
 

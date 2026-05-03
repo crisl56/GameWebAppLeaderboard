@@ -7,6 +7,9 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase";
 
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
+
 const googleProvider = new GoogleAuthProvider();
 
 export default function LoginForm() {
@@ -36,7 +39,18 @@ export default function LoginForm() {
 
         try {
             if (isRegistering) {
-                await createUserWithEmailAndPassword(auth, email, password);
+                const { user } = await createUserWithEmailAndPassword(auth, email, password);
+
+                await setDoc(doc(db, "users", user.uid), {
+                    displayName: user.displayName || user.email,
+                    highScore: 0,
+                    gamesPlayed: 0,
+                    totalScore: 0,
+                    totalJumps: 0,
+                    totalClicks: 0,
+                    totalPipes: 0,
+                });
+
             } else {
                 await signInWithEmailAndPassword(auth, email, password)
             }
@@ -51,7 +65,12 @@ export default function LoginForm() {
         setError("");
         setLoading(true);
         try {
-            await signInWithPopup(auth, googleProvider);
+            const { user } = await signInWithPopup(auth, googleProvider);
+
+            await setDoc(doc(db, "users", user.uid), {
+                displayName: user.displayName || user.email,
+            }, { merge: true });
+
         } catch (err) {
             setError(getReadableError(err));
         } finally {

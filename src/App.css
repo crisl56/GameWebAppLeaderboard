@@ -220,3 +220,147 @@
   color: white;
   box-shadow: 0 0 10px #ff4757;
 }
+
+.admin-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-section {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 1.5rem;
+}
+
+.admin-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.admin-section-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff4757;
+  margin: 0 0 1rem;
+}
+
+.admin-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.admin-stat-item {
+  background: #2f3542;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.admin-stat-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.admin-stat-online {
+  color: #2ed573;
+}
+
+.admin-chart-wrapper {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  padding: 1rem;
+  height: 240px;
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+}
+
+.admin-table th {
+  text-align: right;
+  padding: 6px 10px;
+  color: #888;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 0.7rem;
+}
+
+.admin-table th:first-child {
+  text-align: left;
+}
+
+.admin-table td {
+  text-align: right;
+  padding: 8px 10px;
+  border-bottom: 1px solid #1f1f1f;
+  color: #ccc;
+}
+
+.admin-table td:first-child {
+  text-align: left;
+  color: #fff;
+}
+
+.admin-table tbody tr:hover {
+  background: #2a2a2a;
+}
+
+.admin-row-mock td {
+  color: #555;
+}
+
+.admin-mock-tag {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.6rem;
+  background: #2f3542;
+  color: #ffa502;
+  border: 1px solid #ffa502;
+  border-radius: 3px;
+  padding: 1px 4px;
+  vertical-align: middle;
+  letter-spacing: 0.05em;
+}
+
+.admin-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #888;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-toggle input {
+  accent-color: #ff4757;
+  cursor: pointer;
+}

@@ -65,7 +65,7 @@ export default function LeaderBoard({ currentUserId }) {
 
                                 <div className="leader-stats">
                                     <span className="leader-score">{player.highScore ?? 0}</span>
-                                    <span className="leader-games">{player.gamesplayed ?? 0}</span>
+                                    <span className="leader-games">{player.gamesPlayed ?? 0}</span>
                                 </div>
                             </div>
                         )

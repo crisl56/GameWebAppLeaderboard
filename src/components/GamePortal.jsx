@@ -45,10 +45,10 @@ export default function GamePortal({ user }) {
             const idToken = await user.getIdToken();
             const payload = {
                 type: "firebase-auth",
-                uid: user.id,
+                uid: user.uid,
                 displayName: user.displayName || user.email || "Player",
                 idToken,
-                projectId: user.projectId,
+                projectId: FIREBASE_PROJECT_ID,
             };
             iframeRef.current.contentWindow.postMessage(payload, "*");
             console.log("Auth token sent to iframe... waiting for ack");
